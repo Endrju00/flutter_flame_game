@@ -21,6 +21,30 @@ class Level extends World {
     level = await TiledComponent.load('$levelName.tmx', Vector2.all(16));
     add(level);
 
+  void _scrollingBackground() {
+    final backgroundLayer = level.tileMap.getLayer<TileLayer>('Background');
+    const tileSize = 64;
+
+    final numTileY = (game.size.y / tileSize).floor();
+    final numTileX = (game.size.x / tileSize).floor();
+
+    if (backgroundLayer == null) {
+      throw Exception('Background layer not found');
+    }
+
+    final String? backgroundColor =
+        backgroundLayer.properties.getValue('BackgroundColor');
+
+    for (double y = 0; y < numTileY; y++) {
+      for (double x = 0; x < numTileX; x++) {
+        final tile = BackgroundTile(
+          color: backgroundColor,
+          position: Vector2(x * tileSize, y * tileSize - tileSize),
+        );
+        add(tile);
+      }
+    }
+  }
     final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('Spawnpoints');
 
     if (spawnPointsLayer == null) {
