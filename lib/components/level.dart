@@ -1,10 +1,14 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 
+import '../pixel_adventure.dart';
+import 'background_tile.dart';
 import 'collision_block.dart';
+import 'fruit.dart';
 import 'player.dart';
 
-class Level extends World {
+class Level extends World with HasGameRef<PixelAdventure>, CollisionCallbacks {
   final String levelName;
   final Player player;
 
@@ -20,6 +24,13 @@ class Level extends World {
   Future<void> onLoad() async {
     level = await TiledComponent.load('$levelName.tmx', Vector2.all(16));
     add(level);
+
+    _scrollingBackground();
+    _spawnObjects();
+    _addCollisions();
+
+    return super.onLoad();
+  }
 
   void _scrollingBackground() {
     final backgroundLayer = level.tileMap.getLayer<TileLayer>('Background');
@@ -45,6 +56,8 @@ class Level extends World {
       }
     }
   }
+
+  void _spawnObjects() {
     final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('Spawnpoints');
 
     if (spawnPointsLayer == null) {
@@ -57,10 +70,18 @@ class Level extends World {
           player.position = Vector2(spawnPoint.x, spawnPoint.y);
           add(player);
           break;
+        case 'Fruit':
+          final fruit = Fruit(
+            fruit: spawnPoint.name,
+            position: Vector2(spawnPoint.x, spawnPoint.y),
+          );
+          add(fruit);
         default:
       }
     }
+  }
 
+  void _addCollisions() {
     final collisionsLayer = level.tileMap.getLayer<ObjectGroup>('Collisions');
 
     if (collisionsLayer == null) {
@@ -89,6 +110,5 @@ class Level extends World {
       }
     }
     player.collisionBlocks = collisionBlocks;
-    return super.onLoad();
   }
 }

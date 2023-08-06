@@ -23,8 +23,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/tiles/
+    - assets/images/Background/
     - assets/images/Terrain/
     - assets/images/HUD/
+    - assets/images/Items/Fruits/
     - assets/images/Main Characters/Mask Dude/
     - assets/images/Main Characters/Ninja Frog/
     - assets/images/Main Characters/Pink Man/

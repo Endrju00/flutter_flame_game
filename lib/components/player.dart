@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import '../pixel_adventure.dart';
 import 'collision_block.dart';
 import 'custom_hitbox.dart';
+import 'fruit.dart';
 import 'utils.dart';
 
 enum PlayerState { idle, running, jumping, falling }
@@ -25,8 +26,8 @@ class Player extends SpriteAnimationGroupComponent
   late final SpriteAnimation jumpingAnimation;
   late final SpriteAnimation fallingAnimation;
 
-  final double _gravity = 30;
-  final double _jumpForce = 460;
+  final double _gravity = 9.8;
+  final double _jumpForce = 360;
   final double _terminalVelocity = 300;
 
   double horizontalMovement = 0;
@@ -42,7 +43,10 @@ class Player extends SpriteAnimationGroupComponent
   @override
   FutureOr<void> onLoad() {
     _loadAllAnimations();
-    // debugMode = true;
+    add(RectangleHitbox(
+      position: Vector2(hitbox.offsetX, hitbox.offsetY),
+      size: Vector2(hitbox.width, hitbox.height),
+    ));
     return super.onLoad();
   }
 
@@ -72,6 +76,14 @@ class Player extends SpriteAnimationGroupComponent
         keysPressed.contains(LogicalKeyboardKey.keyW);
 
     return super.onKeyEvent(event, keysPressed);
+  }
+
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    if (other is Fruit) {
+      other.collect();
+    }
+    super.onCollision(intersectionPoints, other);
   }
 
   void _loadAllAnimations() {
