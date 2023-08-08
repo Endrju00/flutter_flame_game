@@ -30,6 +30,8 @@ class Saw extends SpriteAnimationComponent with HasGameRef<PixelAdventure> {
 
   @override
   FutureOr<void> onLoad() {
+    debugMode = true;
+
     priority = -1;
     animation = SpriteAnimation.fromFrameData(
       game.images.fromCache('Traps/Saw/On (38x38).png'),
@@ -47,7 +49,7 @@ class Saw extends SpriteAnimationComponent with HasGameRef<PixelAdventure> {
       rangeNeg = position.x - offsetNegative * size.x;
       rangePos = position.x + offsetPositive * size.x;
     }
-    
+
     add(CircleHitbox());
     return super.onLoad();
   }
