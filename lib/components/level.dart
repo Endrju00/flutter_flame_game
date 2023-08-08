@@ -7,6 +7,7 @@ import 'background_tile.dart';
 import 'collision_block.dart';
 import 'fruit.dart';
 import 'player.dart';
+import 'saw.dart';
 
 class Level extends World with HasGameRef<PixelAdventure>, CollisionCallbacks {
   final String levelName;
@@ -76,6 +77,23 @@ class Level extends World with HasGameRef<PixelAdventure>, CollisionCallbacks {
             position: Vector2(spawnPoint.x, spawnPoint.y),
           );
           add(fruit);
+          break;
+        case 'Saw':
+          final bool? isVertical = spawnPoint.properties.getValue('isVertical');
+          final double? offsetNegative =
+              spawnPoint.properties.getValue('offsetNeg');
+          final double? offsetPositive =
+              spawnPoint.properties.getValue('offsetPos');
+
+          final saw = Saw(
+            isVertical: isVertical ?? false,
+            offsetNegative: offsetNegative ?? 0,
+            offsetPositive: offsetPositive ?? 0,
+            position: Vector2(spawnPoint.x, spawnPoint.y),
+            size: Vector2(spawnPoint.width, spawnPoint.height),
+          );
+          add(saw);
+          break;
         default:
       }
     }
