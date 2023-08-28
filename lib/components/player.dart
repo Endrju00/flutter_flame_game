@@ -42,7 +42,7 @@ class Player extends SpriteAnimationGroupComponent
   late Vector2 startPosition;
 
   final double _gravity = 9.8;
-  final double _jumpForce = 360;
+  final double _jumpForce = 560;
   final double _terminalVelocity = 300;
 
   double horizontalMovement = 0;
@@ -60,7 +60,6 @@ class Player extends SpriteAnimationGroupComponent
 
   @override
   FutureOr<void> onLoad() {
-    debugMode = true;
     _loadAllAnimations();
     startPosition = position.clone();
     add(RectangleHitbox(
