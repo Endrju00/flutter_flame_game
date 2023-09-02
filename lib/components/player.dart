@@ -30,7 +30,12 @@ class Player extends SpriteAnimationGroupComponent
     this.character = 'Ninja Frog',
   }) : super(position: position);
 
-  final double stepTime = 0.05;
+  static const double _stepTime = 0.05;
+  static const double _gravity = 9.8;
+  static const double _jumpForce = 300;
+  static const double _terminalVelocity = 300;
+  static const double fixedDeltaTime = 1 / 60;
+
   late final SpriteAnimation idleAnimation;
   late final SpriteAnimation runningAnimation;
   late final SpriteAnimation jumpingAnimation;
@@ -41,10 +46,6 @@ class Player extends SpriteAnimationGroupComponent
 
   late Vector2 startPosition;
 
-  final double _gravity = 9.8;
-  final double _jumpForce = 560;
-  final double _terminalVelocity = 300;
-
   double horizontalMovement = 0;
   double moveSpeed = 100;
   Vector2 velocity = Vector2.zero();
@@ -52,11 +53,15 @@ class Player extends SpriteAnimationGroupComponent
   bool hasJumped = false;
   bool gotHit = false;
   bool reachedCheckpoint = false;
-
+  double accumulatedTime = 0;
   List<CollisionBlock> collisionBlocks = [];
 
-  CustomHitbox hitbox =
-      CustomHitbox(offsetX: 10, offsetY: 4, width: 14, height: 28);
+  CustomHitbox hitbox = CustomHitbox(
+    offsetX: 10,
+    offsetY: 4,
+    width: 14,
+    height: 28,
+  );
 
   @override
   FutureOr<void> onLoad() {
@@ -71,12 +76,16 @@ class Player extends SpriteAnimationGroupComponent
 
   @override
   void update(double dt) {
-    if (!gotHit && !reachedCheckpoint) {
-      _updatePlayerState();
-      _updatePlayerMovement(dt);
-      _checkHorizontalCollisions();
-      _applyGravity(dt);
-      _checkVerticalCollisions();
+    accumulatedTime += dt;
+    while (accumulatedTime >= fixedDeltaTime) {
+      if (!gotHit && !reachedCheckpoint) {
+        _updatePlayerState();
+        _updatePlayerMovement(fixedDeltaTime);
+        _checkHorizontalCollisions();
+        _applyGravity(fixedDeltaTime);
+        _checkVerticalCollisions();
+      }
+      accumulatedTime -= fixedDeltaTime;
     }
     super.update(dt);
   }
@@ -100,14 +109,14 @@ class Player extends SpriteAnimationGroupComponent
   }
 
   @override
-  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+  void onCollisionStart(
+      Set<Vector2> intersectionPoints, PositionComponent other) {
     if (!reachedCheckpoint) {
       if (other is Fruit) other.collect();
       if (other is Saw) _respawn();
       if (other is Checkpoint) _reachCheckpoint();
     }
-
-    super.onCollision(intersectionPoints, other);
+    super.onCollisionStart(intersectionPoints, other);
   }
 
   void _loadAllAnimations() {
@@ -115,11 +124,10 @@ class Player extends SpriteAnimationGroupComponent
     runningAnimation = _spriteAnimation('Run', 12);
     jumpingAnimation = _spriteAnimation('Jump', 1);
     fallingAnimation = _spriteAnimation('Fall', 1);
-    hitAnimation = _spriteAnimation('Hit', 7);
+    hitAnimation = _spriteAnimation('Hit', 7)..loop = false;
     appearingAnimation = _specialSpriteAnimation('Appearing', 7);
     disappearingAnimation = _specialSpriteAnimation('Disappearing', 7);
 
-    // List of all animations
     animations = {
       PlayerState.idle: idleAnimation,
       PlayerState.running: runningAnimation,
@@ -130,31 +138,29 @@ class Player extends SpriteAnimationGroupComponent
       PlayerState.disappearing: disappearingAnimation,
     };
 
-    // Set current animation
     current = PlayerState.idle;
   }
 
-  SpriteAnimation _spriteAnimation(String state, int amount) {
-    return SpriteAnimation.fromFrameData(
-      game.images.fromCache('Main Characters/$character/$state (32x32).png'),
-      SpriteAnimationData.sequenced(
-        amount: amount,
-        stepTime: stepTime,
-        textureSize: Vector2.all(32),
-      ),
-    );
-  }
+  SpriteAnimation _spriteAnimation(String state, int amount) =>
+      SpriteAnimation.fromFrameData(
+        game.images.fromCache('Main Characters/$character/$state (32x32).png'),
+        SpriteAnimationData.sequenced(
+          amount: amount,
+          stepTime: _stepTime,
+          textureSize: Vector2.all(32),
+        ),
+      );
 
-  SpriteAnimation _specialSpriteAnimation(String state, int amount) {
-    return SpriteAnimation.fromFrameData(
-      game.images.fromCache('Main Characters/$state (96x96).png'),
-      SpriteAnimationData.sequenced(
-        amount: amount,
-        stepTime: stepTime,
-        textureSize: Vector2.all(96),
-      ),
-    );
-  }
+  SpriteAnimation _specialSpriteAnimation(String state, int amount) =>
+      SpriteAnimation.fromFrameData(
+        game.images.fromCache('Main Characters/$state (96x96).png'),
+        SpriteAnimationData.sequenced(
+          amount: amount,
+          stepTime: _stepTime,
+          textureSize: Vector2.all(96),
+          loop: false,
+        ),
+      );
 
   void _updatePlayerState() {
     PlayerState playerState = PlayerState.idle;
@@ -244,30 +250,31 @@ class Player extends SpriteAnimationGroupComponent
     }
   }
 
-  void _respawn() {
-    const hitDuration = Duration(milliseconds: 350);
-    const appearingDuration = Duration(milliseconds: 350);
-    const canMoveDuration = Duration(milliseconds: 400);
-
+  void _respawn({
+    Duration canMoveDuration = const Duration(milliseconds: 400),
+  }) async {
     gotHit = true;
     current = PlayerState.hit;
-    Future.delayed(hitDuration, () {
-      scale.x = 1;
-      position = startPosition - Vector2.all(32);
-      current = PlayerState.appearing;
-      Future.delayed(appearingDuration, () {
-        velocity = Vector2.zero();
-        position = startPosition;
-        _updatePlayerState();
-        Future.delayed(canMoveDuration, () => gotHit = false);
-      });
-    });
+
+    await animationTicker?.completed;
+    animationTicker?.reset();
+
+    scale.x = 1;
+    position = startPosition - Vector2.all(32);
+    current = PlayerState.appearing;
+
+    await animationTicker?.completed;
+    animationTicker?.reset();
+
+    velocity = Vector2.zero();
+    position = startPosition;
+    _updatePlayerState();
+    Future.delayed(canMoveDuration, () => gotHit = false);
   }
 
-  void _reachCheckpoint() {
-    const reachedCheckpointDuration = Duration(milliseconds: 350);
-    const waitForNextLevelDuration = Duration(milliseconds: 1350);
-
+  void _reachCheckpoint({
+    Duration waitForNextLevelDuration = const Duration(milliseconds: 1350),
+  }) async {
     reachedCheckpoint = true;
     if (scale.x > 0) {
       position -= Vector2.all(32);
@@ -276,13 +283,11 @@ class Player extends SpriteAnimationGroupComponent
     }
     current = PlayerState.disappearing;
 
-    Future.delayed(reachedCheckpointDuration, () {
-      reachedCheckpoint = false;
-      position = Vector2.all(-640);
+    await animationTicker?.completed;
+    animationTicker?.reset();
 
-      Future.delayed(waitForNextLevelDuration, () {
-        game.loadNextLevel();
-      });
-    });
+    reachedCheckpoint = false;
+    position = Vector2.all(-640);
+    Future.delayed(waitForNextLevelDuration, () => game.loadNextLevel());
   }
 }
