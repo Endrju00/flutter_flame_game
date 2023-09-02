@@ -95,6 +95,8 @@ class PixelAdventure extends FlameGame
   }
 
   void loadNextLevel() {
+    removeWhere((component) => component is Level);
+    
     currentLevel++;
     if (currentLevel >= levelNames.length) {
       currentLevel = 0;
@@ -103,18 +105,20 @@ class PixelAdventure extends FlameGame
   }
 
   void _loadLevel() {
-    final world = Level(
-      levelName: levelNames[currentLevel],
-      player: player,
-    );
+    Future.delayed(const Duration(seconds: 1), () {
+      final world = Level(
+        player: player,
+        levelName: levelNames[currentLevel],
+      );
 
-    cam = CameraComponent.withFixedResolution(
-      world: world,
-      width: 640,
-      height: 360,
-    );
-    cam.viewfinder.anchor = Anchor.topLeft;
+      cam = CameraComponent.withFixedResolution(
+        world: world,
+        width: 640,
+        height: 360,
+      );
+      cam.viewfinder.anchor = Anchor.topLeft;
 
-    addAll([cam, world]);
+      addAll([cam, world]);
+    });
   }
 }
