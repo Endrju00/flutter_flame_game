@@ -36,10 +36,6 @@ class Level extends World with HasGameRef<PixelAdventure>, CollisionCallbacks {
 
   void _scrollingBackground() {
     final backgroundLayer = level.tileMap.getLayer<TileLayer>('Background');
-    const tileSize = 64;
-
-    final numTileY = (game.size.y / tileSize).floor();
-    final numTileX = (game.size.x / tileSize).floor();
 
     if (backgroundLayer == null) {
       throw Exception('Background layer not found');
@@ -48,15 +44,11 @@ class Level extends World with HasGameRef<PixelAdventure>, CollisionCallbacks {
     final String? backgroundColor =
         backgroundLayer.properties.getValue('BackgroundColor');
 
-    for (double y = 0; y < numTileY; y++) {
-      for (double x = 0; x < numTileX; x++) {
-        final tile = BackgroundTile(
-          color: backgroundColor,
-          position: Vector2(x * tileSize, y * tileSize - tileSize),
-        );
-        add(tile);
-      }
-    }
+    final tile = BackgroundTile(
+      color: backgroundColor,
+      position: Vector2.zero(),
+    );
+    add(tile);
   }
 
   void _spawnObjects() {
@@ -70,6 +62,7 @@ class Level extends World with HasGameRef<PixelAdventure>, CollisionCallbacks {
       switch (spawnPoint.class_) {
         case 'Player':
           player.position = Vector2(spawnPoint.x, spawnPoint.y);
+          player.scale.x = 1;
           add(player);
           break;
         case 'Fruit':
