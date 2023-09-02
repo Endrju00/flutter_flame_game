@@ -26,6 +26,8 @@ class PixelAdventure extends FlameGame
   final player = Player(character: 'Pink Man');
 
   bool showControls = kIsWeb || Platform.isAndroid || Platform.isIOS;
+  bool playSounds = true;
+  double soundVolume = 0.5;
 
   List<String> levelNames = [
     'Level-01',
@@ -96,7 +98,6 @@ class PixelAdventure extends FlameGame
 
   void loadNextLevel() {
     removeWhere((component) => component is Level);
-    
     currentLevel++;
     if (currentLevel >= levelNames.length) {
       currentLevel = 0;
