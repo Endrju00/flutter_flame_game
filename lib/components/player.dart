@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 
 import '../pixel_adventure.dart';
 import 'checkpoint.dart';
+import 'chicken.dart';
 import 'collision_block.dart';
 import 'custom_hitbox.dart';
 import 'fruit.dart';
@@ -115,6 +116,7 @@ class Player extends SpriteAnimationGroupComponent
     if (!reachedCheckpoint) {
       if (other is Fruit) other.collect();
       if (other is Saw) _respawn();
+      if (other is Chicken) other.collidedWithPlayer();
       if (other is Checkpoint) _reachCheckpoint();
     }
     super.onCollisionStart(intersectionPoints, other);
@@ -296,5 +298,9 @@ class Player extends SpriteAnimationGroupComponent
     reachedCheckpoint = false;
     position = Vector2.all(-640);
     Future.delayed(waitForNextLevelDuration, () => game.loadNextLevel());
+  }
+
+  void collidedWithEnemy() {
+    _respawn();
   }
 }
