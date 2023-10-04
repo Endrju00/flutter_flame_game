@@ -38,6 +38,8 @@ class PixelAdventure extends FlameGame
 
   @override
   FutureOr<void> onLoad() async {
+    overlays.add('Menu');
+
     // Load all images into cache
     await images.loadAllImages();
 
