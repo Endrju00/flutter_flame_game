@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
   flame: ^1.8.2
   flame_tiled: ^1.12.0
   flame_audio: ^2.0.5
@@ -25,6 +24,7 @@ flutter:
   assets:
     - assets/audio/
     - assets/tiles/
+    - assets/images/Menu/Buttons/
     - assets/images/Background/
     - assets/images/Terrain/
     - assets/images/HUD/
@@ -37,3 +37,15 @@ flutter:
     - assets/images/Main Characters/Pink Man/
     - assets/images/Main Characters/Virtual Guy/
     - assets/images/Enemies/Chicken/
+
+  fonts:
+    - family: PixelifySans
+      fonts:
+        - asset: fonts/PixelifySans-Regular.ttf
+          weight: 400
+        - asset: fonts/PixelifySans-Medium.ttf
+          weight: 500
+        - asset: fonts/PixelifySans-Bold.ttf
+          weight: 700
+        - asset: fonts/PixelifySans-SemiBold.ttf
+          weight: 600
