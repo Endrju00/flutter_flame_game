@@ -10,7 +10,8 @@
     "fileStates": {
         "Level-01.tmx": {
             "expandedObjectLayers": [
-                3
+                3,
+                2
             ],
             "scale": 2,
             "selectedLayer": 0,
@@ -25,7 +26,7 @@
                 2
             ],
             "scale": 2,
-            "selectedLayer": 2,
+            "selectedLayer": 0,
             "viewCenter": {
                 "x": 322.75,
                 "y": 153.25
@@ -37,7 +38,19 @@
                 2
             ],
             "scale": 2.4403125,
-            "selectedLayer": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.2458701498271,
+                "y": 184.19772057881931
+            }
+        },
+        "Level-04.tmx": {
+            "expandedObjectLayers": [
+                4,
+                3
+            ],
+            "scale": 2.4403125,
+            "selectedLayer": 2,
             "viewCenter": {
                 "x": 320.2458701498271,
                 "y": 184.19772057881931
@@ -49,7 +62,7 @@
                 3
             ],
             "scale": 2.4403125,
-            "selectedLayer": 1,
+            "selectedLayer": 2,
             "viewCenter": {
                 "x": 320.2458701498271,
                 "y": 184.19772057881931
