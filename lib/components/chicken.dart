@@ -24,7 +24,7 @@ class Chicken extends SpriteAnimationGroupComponent
 
   static const stepTime = 0.05;
   static const tileSize = 16;
-  static const runSpeed = 80;
+  static const runSpeed = 120;
   static const bounceHeight = 260.0;
   final textureSize = Vector2(32, 34);
 
