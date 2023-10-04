@@ -28,21 +28,30 @@ class Menu extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               onTap: () => game.overlays.remove('Menu'),
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 200),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                constraints: const BoxConstraints(maxWidth: 300, minWidth: 200),
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
                     children: [
-                      Image.asset(
-                        'assets/images/Menu/Buttons/Play.png',
-                        height: 32,
-                        width: 32,
-                        fit: BoxFit.cover,
+                      Positioned.fill(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Image.asset(
+                            'assets/images/Menu/Buttons/Play.png',
+                            height: 24,
+                            width: 24,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                      const SizedBox(width: 8),
                       const Text(
                         'Play',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'PixelifySans',
                           fontSize: 24,
