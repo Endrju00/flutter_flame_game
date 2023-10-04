@@ -31,7 +31,10 @@ class PixelAdventure extends FlameGame
 
   List<String> levelNames = [
     'Level-01',
-    'Level-01',
+    'Level-02',
+    'Level-03',
+    'Level-04',
+    'Level-05',
   ];
 
   int currentLevel = 0;
@@ -102,6 +105,7 @@ class PixelAdventure extends FlameGame
     removeWhere((component) => component is Level);
     currentLevel++;
     if (currentLevel >= levelNames.length) {
+      overlays.add('Game over');
       currentLevel = 0;
     }
     _loadLevel();
