@@ -26,7 +26,7 @@ class PixelAdventure extends FlameGame
   final player = Player(character: 'Pink Man');
 
   bool showControls = kIsWeb || Platform.isAndroid || Platform.isIOS;
-  bool playSounds = true;
+  bool playSounds = false;
   double soundVolume = 0.5;
 
   List<String> levelNames = [
@@ -42,29 +42,19 @@ class PixelAdventure extends FlameGame
   @override
   FutureOr<void> onLoad() async {
     overlays.add('Menu');
-
-    // Load all images into cache
     await images.loadAllImages();
-
     _loadLevel();
-
-    if (showControls) {
-      addJoystick();
-      add(JumpButton());
-    }
-
+    if (showControls) drawControlButtons();
     return super.onLoad();
   }
 
   @override
   void update(double dt) {
-    if (showControls) {
-      _updateJoystick();
-    }
+    if (showControls) _updateJoystick();
     super.update(dt);
   }
 
-  void addJoystick() {
+  void _addJoystick() {
     joystick = JoystickComponent(
       priority: 10,
       knob: SpriteComponent(
@@ -101,6 +91,11 @@ class PixelAdventure extends FlameGame
     }
   }
 
+  void drawControlButtons() {
+    _addJoystick();
+    add(JumpButton());
+  }
+
   void loadNextLevel() {
     removeWhere((component) => component is Level);
     currentLevel++;
@@ -124,7 +119,6 @@ class PixelAdventure extends FlameGame
         height: 360,
       );
       cam.viewfinder.anchor = Anchor.topLeft;
-
       addAll([cam, world]);
     });
   }
