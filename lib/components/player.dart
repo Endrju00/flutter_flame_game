@@ -12,7 +12,6 @@ import 'collision_block.dart';
 import 'custom_hitbox.dart';
 import 'fruit.dart';
 import 'saw.dart';
-import 'utils.dart';
 
 enum PlayerState {
   idle,
@@ -112,14 +111,24 @@ class Player extends SpriteAnimationGroupComponent
 
   @override
   void onCollisionStart(
-      Set<Vector2> intersectionPoints, PositionComponent other) {
-    if (!reachedCheckpoint) {
-      if (other is Fruit) other.collect();
-      if (other is Saw) _respawn();
-      if (other is Chicken) other.collidedWithPlayer();
-      if (other is Checkpoint) _reachCheckpoint();
-    }
+    Set<Vector2> intersectionPoints,
+    PositionComponent other,
+  ) {
+    if (!reachedCheckpoint) _onCollisionStart(other);
     super.onCollisionStart(intersectionPoints, other);
+  }
+
+  void _onCollisionStart(PositionComponent other) {
+    if (other is Fruit) other.collect();
+    if (other is Saw) _respawn();
+    if (other is Chicken) other.collidedWithPlayer();
+    if (other is Checkpoint) _reachCheckpoint();
+  }
+
+  void _applyGravity(double dt) {
+    velocity.y += _gravity;
+    velocity.y = velocity.y.clamp(-_jumpForce, _terminalVelocity);
+    position.y += velocity.y * dt;
   }
 
   void _loadAllAnimations() {
@@ -187,13 +196,13 @@ class Player extends SpriteAnimationGroupComponent
   }
 
   void _updatePlayerMovement(double dt) {
-    if (hasJumped && isOnGround) _playerJump(dt);
+    if (hasJumped && isOnGround) _jump(dt);
 
     velocity.x = horizontalMovement * moveSpeed;
     position.x += velocity.x * dt;
   }
 
-  void _playerJump(double dt) {
+  void _jump(double dt) {
     if (game.playSounds) FlameAudio.play('jump.wav', volume: game.soundVolume);
     velocity.y = -_jumpForce;
     position.y += velocity.y * dt;
@@ -201,10 +210,23 @@ class Player extends SpriteAnimationGroupComponent
     hasJumped = false;
   }
 
+  bool hasCollisionWith(CollisionBlock block) {
+    final x = position.x + hitbox.offsetX;
+    final y = position.y + hitbox.offsetY;
+
+    final fixedX = scale.x < 0 ? x - (hitbox.offsetX * 2) - hitbox.width : x;
+    final fixedY = block.isPlatform ? y + hitbox.height : y;
+
+    return fixedY < block.y + block.height &&
+        y + hitbox.height > block.y &&
+        fixedX < block.x + block.width &&
+        fixedX + hitbox.width > block.x;
+  }
+
   void _checkHorizontalCollisions() {
     for (final block in collisionBlocks) {
       if (!block.isPlatform) {
-        if (checkCollision(this, block)) {
+        if (hasCollisionWith(block)) {
           if (velocity.x > 0) {
             velocity.x = 0;
             position.x = block.x - hitbox.offsetX - hitbox.width;
@@ -220,16 +242,10 @@ class Player extends SpriteAnimationGroupComponent
     }
   }
 
-  void _applyGravity(double dt) {
-    velocity.y += _gravity;
-    velocity.y = velocity.y.clamp(-_jumpForce, _terminalVelocity);
-    position.y += velocity.y * dt;
-  }
-
   void _checkVerticalCollisions() {
     for (final block in collisionBlocks) {
       if (block.isPlatform) {
-        if (checkCollision(this, block)) {
+        if (hasCollisionWith(block)) {
           if (velocity.y > 0) {
             velocity.y = 0;
             position.y = block.y - hitbox.height - hitbox.offsetY;
@@ -238,7 +254,7 @@ class Player extends SpriteAnimationGroupComponent
           }
         }
       } else {
-        if (checkCollision(this, block)) {
+        if (hasCollisionWith(block)) {
           if (velocity.y > 0) {
             velocity.y = 0;
             position.y = block.y - hitbox.height - hitbox.offsetY;
