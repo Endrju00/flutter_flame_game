@@ -25,7 +25,9 @@ class PixelAdventure extends FlameGame
 
   final player = Player(character: 'Pink Man');
 
-  bool showControls = kIsWeb || Platform.isAndroid || Platform.isIOS;
+  final isMobile = !kIsWeb && (Platform.isAndroid || Platform.isIOS);
+
+  bool showControls = !kIsWeb && (Platform.isAndroid || Platform.isIOS);
   bool playSounds = false;
   double soundVolume = 0.5;
 
