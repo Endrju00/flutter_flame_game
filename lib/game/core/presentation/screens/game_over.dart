@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_flame_game/game/pixel_adventure.dart';
 
+import '../widgets/pixel_button.dart';
 import 'menu.dart';
 
 class GameOverScreen extends StatelessWidget {
@@ -25,7 +26,6 @@ class GameOverScreen extends StatelessWidget {
                 fontFamily: 'PixelifySans',
                 fontSize: 64,
                 color: Colors.white,
-                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 16),
@@ -38,49 +38,23 @@ class GameOverScreen extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
             ),
-            const SizedBox(height: 64),
-            InkWell(
-              borderRadius: BorderRadius.circular(8),
-              onTap: () => Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => const Menu(),
-                ),
+            const SizedBox(height: 32),
+            PixelButton(
+              text: 'Play again',
+              icon: Image.asset(
+                'assets/images/Menu/Buttons/Restart.png',
+                height: 24,
+                width: 24,
+                fit: BoxFit.cover,
               ),
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 300, minWidth: 200),
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(8),
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => const Menu(),
                   ),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Positioned.fill(
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Image.asset(
-                            'assets/images/Menu/Buttons/Restart.png',
-                            height: 24,
-                            width: 24,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        'Play again',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'PixelifySans',
-                          fontSize: 24,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                );
+                game.overlays.remove('Game over');
+              },
             ),
           ],
         ),
