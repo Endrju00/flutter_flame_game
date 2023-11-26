@@ -5,13 +5,13 @@ import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/services.dart';
 
-import '../pixel_adventure.dart';
-import 'checkpoint.dart';
-import 'chicken.dart';
-import 'collision_block.dart';
-import 'custom_hitbox.dart';
-import 'fruit.dart';
-import 'saw.dart';
+import '../../pixel_adventure.dart';
+import '../checkpoints/checkpoint.dart';
+import '../enemies/chicken.dart';
+import '../collisions/collision_block.dart';
+import '../collisions/custom_hitbox.dart';
+import '../points/fruit.dart';
+import '../obstacles/saw.dart';
 
 enum PlayerState {
   idle,

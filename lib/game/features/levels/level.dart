@@ -2,14 +2,14 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 
-import '../pixel_adventure.dart';
-import 'background_tile.dart';
-import 'checkpoint.dart';
-import 'chicken.dart';
-import 'collision_block.dart';
-import 'fruit.dart';
-import 'player.dart';
-import 'saw.dart';
+import '../../pixel_adventure.dart';
+import '../backgrounds/background_tile.dart';
+import '../checkpoints/checkpoint.dart';
+import '../enemies/chicken.dart';
+import '../collisions/collision_block.dart';
+import '../points/fruit.dart';
+import '../player/player.dart';
+import '../obstacles/saw.dart';
 
 class Level extends World with HasGameRef<PixelAdventure>, CollisionCallbacks {
   final String levelName;
