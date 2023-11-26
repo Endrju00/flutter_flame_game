@@ -25,11 +25,9 @@ class PixelAdventure extends FlameGame
 
   final player = Player(character: 'Pink Man');
 
-  final isMobile = !kIsWeb && (Platform.isAndroid || Platform.isIOS);
-
-  bool showControls = !kIsWeb && (Platform.isAndroid || Platform.isIOS);
-  bool playSounds = false;
-  double soundVolume = 0.5;
+  late bool showControls;
+  bool playSounds = kIsWeb || Platform.isAndroid || Platform.isIOS;
+  double soundVolume = 0.01;
 
   List<String> levelNames = [
     'Level-01',
@@ -43,6 +41,9 @@ class PixelAdventure extends FlameGame
 
   @override
   FutureOr<void> onLoad() async {
+    showControls = (kIsWeb && size[0] < 1000 && size[1] < 500) ||
+        (kIsWeb && size[1] < 1000 && size[0] < 500) ||
+        !kIsWeb && (Platform.isAndroid || Platform.isIOS);
     overlays.add('Menu');
     await images.loadAllImages();
     _loadLevel();
