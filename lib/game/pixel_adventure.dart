@@ -7,8 +7,8 @@ import 'package:flame/game.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'features/player/jump_button.dart';
 import 'features/levels/level.dart';
+import 'features/player/jump_button.dart';
 import 'features/player/player.dart';
 
 class PixelAdventure extends FlameGame
@@ -122,6 +122,7 @@ class PixelAdventure extends FlameGame
       );
       cam.viewfinder.anchor = Anchor.topLeft;
       addAll([cam, world]);
+      overlays.add('Score');
     });
   }
 }
