@@ -123,6 +123,7 @@ class PixelAdventure extends FlameGame
       cam.viewfinder.anchor = Anchor.topLeft;
       addAll([cam, world]);
       overlays.add('Score');
+      overlays.add('Health');
     });
   }
 }
