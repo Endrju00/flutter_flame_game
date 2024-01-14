@@ -7,11 +7,11 @@ import 'package:flutter/services.dart';
 
 import '../../pixel_adventure.dart';
 import '../checkpoints/checkpoint.dart';
-import '../enemies/chicken.dart';
 import '../collisions/collision_block.dart';
 import '../collisions/custom_hitbox.dart';
-import '../points/fruit.dart';
+import '../enemies/chicken.dart';
 import '../obstacles/saw.dart';
+import '../points/fruit.dart';
 
 enum PlayerState {
   idle,
