@@ -4,8 +4,10 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 
+import '../../../injection_container.dart';
 import '../../pixel_adventure.dart';
 import '../collisions/custom_hitbox.dart';
+import 'bloc/score/score_bloc.dart';
 
 class Fruit extends SpriteAnimationComponent with HasGameRef<PixelAdventure> {
   final String fruit;
@@ -59,6 +61,7 @@ class Fruit extends SpriteAnimationComponent with HasGameRef<PixelAdventure> {
         ),
       );
       await animationTicker?.completed;
+      sl<ScoreBloc>().add(IncrementScoreEvent());
       removeFromParent();
     }
   }
