@@ -90,6 +90,10 @@ class Player extends SpriteAnimationGroupComponent
       }
       accumulatedTime -= fixedDeltaTime;
     }
+    
+    if (sl<HealthBloc>().state.isPlayerDead) {
+      game.overlays.add('Game over (death)');
+    }
     super.update(dt);
   }
 
@@ -290,10 +294,6 @@ class Player extends SpriteAnimationGroupComponent
 
     await animationTicker?.completed;
     animationTicker?.reset();
-
-    if (sl<HealthBloc>().state.isPlayerDead) {
-      game.overlays.add('Game over (death)');
-    }
 
     velocity = Vector2.zero();
     position = startPosition;
