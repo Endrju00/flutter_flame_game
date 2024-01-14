@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_flame_game/game/features/points/bloc/score/score_bloc.dart';
 import 'package:flutter_flame_game/game/pixel_adventure.dart';
 
+import '../../../../injection_container.dart';
 import '../widgets/pixel_button.dart';
 import 'menu.dart';
 
@@ -38,6 +41,19 @@ class GameOverScreen extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
             ),
+            BlocBuilder<ScoreBloc, ScoreState>(
+              builder: (context, state) {
+                return Text(
+                  'Score: ${state.score}',
+                  style: const TextStyle(
+                    fontFamily: 'PixelifySans',
+                    fontSize: 32,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                  ),
+                );
+              },
+            ),
             const SizedBox(height: 32),
             PixelButton(
               text: 'Play again',
@@ -48,6 +64,7 @@ class GameOverScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               onPressed: () {
+                sl<ScoreBloc>().add(ResetScoreEvent());
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
                     builder: (context) => const Menu(),

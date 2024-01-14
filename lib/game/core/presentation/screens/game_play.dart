@@ -1,9 +1,9 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import '../../../pixel_adventure.dart';
-import 'game_over.dart';
 
-PixelAdventure _pixelAdventureGame = PixelAdventure();
+import '../../../pixel_adventure.dart';
+import '../overlays/score_overlay.dart';
+import 'game_over.dart';
 
 class GamePlay extends StatelessWidget {
   const GamePlay({super.key});
@@ -14,11 +14,12 @@ class GamePlay extends StatelessWidget {
       body: WillPopScope(
         onWillPop: () async => false,
         child: GameWidget(
-          game: _pixelAdventureGame,
+          game: PixelAdventure(),
           overlayBuilderMap: {
-            'Game over': (context, game) {
-              return GameOverScreen(game: game as PixelAdventure);
-            },
+            'Score': (context, game) => const ScoreOverlay(),
+            'Game over': (context, game) => GameOverScreen(
+                  game: game as PixelAdventure,
+                ),
           },
         ),
       ),
