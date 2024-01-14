@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'game/core/presentation/screens/menu.dart';
+import 'game/features/player/bloc/health/health_bloc.dart';
+import 'game/features/points/bloc/score/score_bloc.dart';
+import 'injection_container.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,7 +18,17 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFF211F30),
       ),
       debugShowCheckedModeBanner: false,
-      home: const Menu(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider<ScoreBloc>(
+            create: (context) => sl<ScoreBloc>(),
+          ),
+          BlocProvider<HealthBloc>(
+            create: (context) => sl<HealthBloc>(),
+          ),
+        ],
+        child: const Menu(),
+      ),
     );
   }
 }

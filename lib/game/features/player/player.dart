@@ -5,6 +5,7 @@ import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/services.dart';
 
+import '../../../injection_container.dart';
 import '../../pixel_adventure.dart';
 import '../checkpoints/checkpoint.dart';
 import '../collisions/collision_block.dart';
@@ -12,6 +13,7 @@ import '../collisions/custom_hitbox.dart';
 import '../enemies/chicken.dart';
 import '../obstacles/saw.dart';
 import '../points/fruit.dart';
+import 'bloc/health/health_bloc.dart';
 
 enum PlayerState {
   idle,
@@ -274,6 +276,7 @@ class Player extends SpriteAnimationGroupComponent
     Duration canMoveDuration = const Duration(milliseconds: 400),
   }) async {
     if (game.playSounds) FlameAudio.play('hit.wav', volume: game.soundVolume);
+    sl<HealthBloc>().add(DecreaseHealthEvent());
 
     gotHit = true;
     current = PlayerState.hit;
@@ -287,6 +290,10 @@ class Player extends SpriteAnimationGroupComponent
 
     await animationTicker?.completed;
     animationTicker?.reset();
+
+    if (sl<HealthBloc>().state.isPlayerDead) {
+      game.overlays.add('Game over (death)');
+    }
 
     velocity = Vector2.zero();
     position = startPosition;
@@ -316,7 +323,5 @@ class Player extends SpriteAnimationGroupComponent
     Future.delayed(waitForNextLevelDuration, () => game.loadNextLevel());
   }
 
-  void collidedWithEnemy() {
-    _respawn();
-  }
+  void collidedWithEnemy() => _respawn();
 }

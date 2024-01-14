@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../injection_container.dart';
 import '../../../features/points/bloc/score/score_bloc.dart';
 
 class ScoreOverlay extends StatelessWidget {
@@ -15,6 +15,7 @@ class ScoreOverlay extends StatelessWidget {
       alignment: Alignment.topRight,
       margin: const EdgeInsets.only(top: 32, right: 32),
       child: BlocBuilder<ScoreBloc, ScoreState>(
+        bloc: sl<ScoreBloc>(),
         builder: (context, state) {
           return Text(
             'SCORE: ${state.score}',

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../injection_container.dart';
-import '../../../features/points/bloc/score/score_bloc.dart';
 import '../widgets/pixel_button.dart';
 import 'game_play.dart';
 
@@ -36,10 +33,7 @@ class Menu extends StatelessWidget {
               ),
               onPressed: () => Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: (context) => BlocProvider<ScoreBloc>(
-                    create: (context) => sl<ScoreBloc>(),
-                    child: const GamePlay(),
-                  ),
+                  builder: (context) => const GamePlay(),
                 ),
               ),
             ),
