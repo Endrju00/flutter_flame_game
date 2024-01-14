@@ -95,7 +95,6 @@ class GameOverScreen extends StatelessWidget {
                     builder: (context) => const Menu(),
                   ),
                 );
-                game.overlays.remove('Game over');
               },
             ),
           ],
