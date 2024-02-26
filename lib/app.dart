@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'game/core/presentation/screens/menu.dart';
+import 'game/features/benchmark/bloc/benchmark_bloc.dart';
 import 'game/features/player/bloc/health/health_bloc.dart';
 import 'game/features/points/bloc/score/score_bloc.dart';
 import 'injection_container.dart';
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider<HealthBloc>(
             create: (context) => sl<HealthBloc>(),
+          ),
+          BlocProvider<BenchmarkBloc>(
+            create: (context) => sl<BenchmarkBloc>(),
           ),
         ],
         child: const Menu(),
