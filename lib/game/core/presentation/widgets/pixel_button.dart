@@ -18,23 +18,17 @@ class PixelButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(8),
       onTap: onPressed,
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 320, minWidth: 200),
+        constraints: const BoxConstraints(maxWidth: 320, minWidth: 240),
         child: Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: Colors.grey.withOpacity(0.2),
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Stack(
-            alignment: Alignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              if (icon != null)
-                Positioned.fill(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: icon,
-                  ),
-                ),
+              if (icon != null) icon!,
               Text(
                 text,
                 textAlign: TextAlign.center,
@@ -44,6 +38,7 @@ class PixelButton extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
+              Container(width: 22),
             ],
           ),
         ),

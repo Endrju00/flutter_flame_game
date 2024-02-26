@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../injection_container.dart';
+import '../../../features/benchmark/bloc/benchmark_bloc.dart';
 import '../../../features/player/bloc/health/health_bloc.dart';
 import '../../../features/points/bloc/score/score_bloc.dart';
 import '../../../pixel_adventure.dart';
@@ -17,6 +18,16 @@ class GameOverScreen extends StatelessWidget {
     required this.game,
     required this.isPlayerDead,
   });
+
+  void _restartGame(BuildContext context) {
+    sl<ScoreBloc>().add(ResetScoreEvent());
+    sl<HealthBloc>().add(ResetHealthEvent());
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => const Menu(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +77,6 @@ class GameOverScreen extends StatelessWidget {
             BlocBuilder<ScoreBloc, ScoreState>(
               bloc: sl<ScoreBloc>(),
               builder: (context, state) {
-                
                 return Text(
                   'Score: ${state.score}',
                   style: const TextStyle(
@@ -79,21 +89,30 @@ class GameOverScreen extends StatelessWidget {
               },
             ),
             const SizedBox(height: 32),
-            PixelButton(
-              text: 'Play again',
-              icon: Image.asset(
-                'assets/images/Menu/Buttons/Restart.png',
-                height: 24,
-                width: 24,
-                fit: BoxFit.cover,
-              ),
-              onPressed: () {
-                sl<ScoreBloc>().add(ResetScoreEvent());
-                sl<HealthBloc>().add(ResetHealthEvent());
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => const Menu(),
+            BlocBuilder<BenchmarkBloc, BenchmarkState>(
+              bloc: sl<BenchmarkBloc>(),
+              builder: (context, benchmark) {
+                if (benchmark.isRunning) {
+                  return PixelButton(
+                    text: 'Menu',
+                    icon: Image.asset(
+                      'assets/images/Menu/Buttons/Previous.png',
+                      height: 24,
+                      width: 24,
+                      fit: BoxFit.cover,
+                    ),
+                    onPressed: () => _restartGame(context),
+                  );
+                }
+                return PixelButton(
+                  text: 'Play again',
+                  icon: Image.asset(
+                    'assets/images/Menu/Buttons/Restart.png',
+                    height: 24,
+                    width: 24,
+                    fit: BoxFit.cover,
                   ),
+                  onPressed: () => _restartGame(context),
                 );
               },
             ),

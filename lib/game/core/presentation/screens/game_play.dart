@@ -12,8 +12,8 @@ class GamePlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: WillPopScope(
-        onWillPop: () async => false,
+      body: PopScope(
+        canPop: false,
         child: GameWidget(
           game: PixelAdventure(),
           overlayBuilderMap: {
