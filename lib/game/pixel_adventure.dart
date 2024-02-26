@@ -7,6 +7,8 @@ import 'package:flame/game.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../injection_container.dart';
+import 'features/benchmark/bloc/benchmark_bloc.dart';
 import 'features/levels/level.dart';
 import 'features/player/jump_button.dart';
 import 'features/player/player.dart';
@@ -17,19 +19,17 @@ class PixelAdventure extends FlameGame
         DragCallbacks,
         HasCollisionDetection,
         TapCallbacks {
-  @override
-  Color backgroundColor() => const Color(0xFF211F30);
-
   late CameraComponent cam;
+
   late final JoystickComponent joystick;
 
-  final player = Player(character: 'Pink Man');
+  final Player player = Player(character: 'Pink Man');
 
-  late bool showControls;
-  bool playSounds = kIsWeb || Platform.isAndroid || Platform.isIOS;
-  double soundVolume = 0.01;
+  final double soundVolume = 0.01;
 
-  List<String> levelNames = [
+  late List<String> levelNames;
+
+  final List<String> _levels = [
     'Level-01',
     'Level-02',
     'Level-03',
@@ -37,13 +37,34 @@ class PixelAdventure extends FlameGame
     'Level-05',
   ];
 
+  final List<String> _benchmarkLevels = [
+    'Benchmark-01',
+    'Benchmark-02',
+    'Benchmark-03',
+  ];
+
   int currentLevel = 0;
+
+  bool get playSounds => kIsWeb || Platform.isAndroid || Platform.isIOS;
+
+  bool get isBenchmarkRunning => sl<BenchmarkBloc>().state.isRunning;
+
+  bool get showControls =>
+      ((kIsWeb && size[0] < 1000 && size[1] < 500) ||
+          (kIsWeb && size[1] < 1000 && size[0] < 500) ||
+          !kIsWeb && (Platform.isAndroid || Platform.isIOS)) &&
+      !isBenchmarkRunning;
+
+  void _initLevels() {
+    levelNames = isBenchmarkRunning ? _benchmarkLevels : _levels;
+  }
+
+  @override
+  Color backgroundColor() => const Color(0xFF211F30);
 
   @override
   FutureOr<void> onLoad() async {
-    showControls = (kIsWeb && size[0] < 1000 && size[1] < 500) ||
-        (kIsWeb && size[1] < 1000 && size[0] < 500) ||
-        !kIsWeb && (Platform.isAndroid || Platform.isIOS);
+    _initLevels();
     await images.loadAllImages();
     _loadLevel();
     if (showControls) drawControlButtons();

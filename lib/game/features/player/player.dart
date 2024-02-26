@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 
 import '../../../injection_container.dart';
 import '../../pixel_adventure.dart';
+import '../benchmark/bloc/benchmark_bloc.dart';
 import '../checkpoints/checkpoint.dart';
 import '../collisions/collision_block.dart';
 import '../collisions/custom_hitbox.dart';
@@ -49,6 +50,8 @@ class Player extends SpriteAnimationGroupComponent
 
   late Vector2 startPosition;
 
+  bool get isBenchmarkRunning => sl<BenchmarkBloc>().state.isRunning;
+
   double horizontalMovement = 0;
   double moveSpeed = 100;
   Vector2 velocity = Vector2.zero();
@@ -74,6 +77,7 @@ class Player extends SpriteAnimationGroupComponent
       position: Vector2(hitbox.offsetX, hitbox.offsetY),
       size: Vector2(hitbox.width, hitbox.height),
     ));
+    if (isBenchmarkRunning) horizontalMovement = 1;
     return super.onLoad();
   }
 
@@ -99,6 +103,8 @@ class Player extends SpriteAnimationGroupComponent
 
   @override
   bool onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
+    if (isBenchmarkRunning) return super.onKeyEvent(event, keysPressed);
+    
     horizontalMovement = 0;
     final isLeftKeyPressed = keysPressed.contains(LogicalKeyboardKey.keyA) ||
         keysPressed.contains(LogicalKeyboardKey.arrowLeft);
