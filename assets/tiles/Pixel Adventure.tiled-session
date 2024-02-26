@@ -3,11 +3,45 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Level-04.tmx",
+    "activeFile": "Benchmark-02.tmx",
     "expandedProjectPaths": [
         "."
     ],
     "fileStates": {
+        "Benchmark-01.tmx": {
+            "expandedObjectLayers": [
+                2,
+                3
+            ],
+            "scale": 2.3275,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 320.30075187969925,
+                "y": 184.10311493018258
+            }
+        },
+        "Benchmark-02.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 2.3275,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 319.8711063372717,
+                "y": 183.67346938775512
+            }
+        },
+        "Benchmark-03.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 2.3275,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 320.30075187969925,
+                "y": 184.10311493018258
+            }
+        },
         "Level-01.tmx": {
             "expandedObjectLayers": [
                 2,
@@ -16,8 +50,8 @@
             "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 320.75,
-                "y": 355.25
+                "x": 274.75,
+                "y": 98.25
             }
         },
         "Level-02.tmx": {
@@ -26,10 +60,18 @@
                 3
             ],
             "scale": 2,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 259.75,
+                "y": 152.25
+            }
+        },
+        "Level-03 — kopia.tmx": {
+            "scale": 2.3275,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 319.75,
-                "y": 183.75
+                "x": 320.30075187969925,
+                "y": 184.10311493018258
             }
         },
         "Level-03.tmx": {
@@ -38,34 +80,34 @@
                 3
             ],
             "scale": 2.4403125,
-            "selectedLayer": 0,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 319.8360865667819,
-                "y": 183.7879369957741
+                "x": 319.0165194006915,
+                "y": 183.37815341272886
             }
         },
         "Level-04.tmx": {
             "expandedObjectLayers": [
-                3,
-                4
+                4,
+                3
             ],
             "scale": 2.4403125,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 320.0409783583045,
-                "y": 183.7879369957741
+                "x": 319.0165194006915,
+                "y": 183.37815341272886
             }
         },
         "Level-05.tmx": {
             "expandedObjectLayers": [
-                3,
-                4
+                4,
+                3
             ],
             "scale": 2.4403125,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 319.8360865667819,
-                "y": 183.7879369957741
+                "x": 317.7871686515559,
+                "y": 252.63157894736838
             }
         },
         "Pixel Adventure.tsx": {
@@ -85,7 +127,11 @@
         "Level-02.tmx",
         "Level-03.tmx",
         "Level-04.tmx",
-        "Level-05.tmx"
+        "Benchmark-01.tmx",
+        "Level-05.tmx",
+        "Benchmark-02.tmx",
+        "Level-03 — kopia.tmx",
+        "Benchmark-03.tmx"
     ],
     "project": "Pixel Adventure.tiled-project",
     "property.type": "bool",
@@ -94,8 +140,12 @@
         "Level-01.tmx",
         "Level-02.tmx",
         "Level-03.tmx",
+        "Level-04.tmx",
+        "Benchmark-01.tmx",
         "Level-05.tmx",
-        "Level-04.tmx"
+        "Benchmark-03.tmx",
+        "Level-03 — kopia.tmx",
+        "Benchmark-02.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
