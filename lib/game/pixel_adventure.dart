@@ -67,6 +67,7 @@ class PixelAdventure extends FlameGame
     _initLevels();
     await images.loadAllImages();
     _loadLevel();
+    _initJoystick();
     if (showControls) drawControlButtons();
     return super.onLoad();
   }
@@ -77,7 +78,7 @@ class PixelAdventure extends FlameGame
     super.update(dt);
   }
 
-  void _addJoystick() {
+  void _initJoystick() {
     joystick = JoystickComponent(
       priority: 10,
       knob: SpriteComponent(
@@ -92,8 +93,6 @@ class PixelAdventure extends FlameGame
       ),
       margin: const EdgeInsets.only(left: 32, bottom: 32),
     );
-
-    add(joystick);
   }
 
   void _updateJoystick() {
@@ -115,7 +114,7 @@ class PixelAdventure extends FlameGame
   }
 
   void drawControlButtons() {
-    _addJoystick();
+    add(joystick);
     add(JumpButton());
   }
 
@@ -125,8 +124,9 @@ class PixelAdventure extends FlameGame
     if (currentLevel >= levelNames.length) {
       overlays.add('Game over');
       currentLevel = 0;
+    } else {
+      _loadLevel();
     }
-    _loadLevel();
   }
 
   void _loadLevel() {

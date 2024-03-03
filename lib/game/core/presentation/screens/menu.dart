@@ -5,14 +5,9 @@ import '../../../features/benchmark/bloc/benchmark_bloc.dart';
 import '../widgets/pixel_button.dart';
 import 'game_play.dart';
 
-class Menu extends StatefulWidget {
+class Menu extends StatelessWidget {
   const Menu({super.key});
 
-  @override
-  State<Menu> createState() => _MenuState();
-}
-
-class _MenuState extends State<Menu> {
   void _navigateToGamePlay(BuildContext context) {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
@@ -24,12 +19,6 @@ class _MenuState extends State<Menu> {
   void _enableBenchmark(BuildContext context) {
     sl<BenchmarkBloc>().add(EnableBenchmarkEvent());
     _navigateToGamePlay(context);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    sl<BenchmarkBloc>().add(DisableBenchmarkEvent());
   }
 
   @override

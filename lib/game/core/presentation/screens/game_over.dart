@@ -22,6 +22,7 @@ class GameOverScreen extends StatelessWidget {
   void _restartGame(BuildContext context) {
     sl<ScoreBloc>().add(ResetScoreEvent());
     sl<HealthBloc>().add(ResetHealthEvent());
+    sl<BenchmarkBloc>().add(DisableBenchmarkEvent());
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (context) => const Menu(),
