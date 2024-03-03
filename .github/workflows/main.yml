@@ -20,7 +20,7 @@ jobs:
       - name: 📦 Install Dependencies
         run: flutter pub get
       - name: 🛠️ Build the application
-        run: flutter build web
+        run: flutter build web --web-renderer canvaskit
       - name: ⬇️ Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
