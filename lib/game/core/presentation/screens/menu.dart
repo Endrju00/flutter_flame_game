@@ -26,40 +26,43 @@ class Menu extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF211F30),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Pixel Adventure',
-              style: TextStyle(
-                fontFamily: 'PixelifySans',
-                fontSize: 64,
-                color: Colors.white,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Pixel Adventure',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'PixelifySans',
+                  fontSize: 64,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            const SizedBox(height: 32),
-            PixelButton(
-              text: 'Play',
-              icon: Image.asset(
-                'assets/images/Menu/Buttons/Play.png',
-                height: 24,
-                width: 24,
-                fit: BoxFit.cover,
+              const SizedBox(height: 32),
+              PixelButton(
+                text: 'Play',
+                icon: Image.asset(
+                  'assets/images/Menu/Buttons/Play.png',
+                  height: 24,
+                  width: 24,
+                  fit: BoxFit.cover,
+                ),
+                onPressed: () => _navigateToGamePlay(context),
               ),
-              onPressed: () => _navigateToGamePlay(context),
-            ),
-            const SizedBox(height: 16),
-            PixelButton(
-              text: 'Benchmark',
-              icon: Image.asset(
-                'assets/images/Menu/Buttons/Settings.png',
-                height: 24,
-                width: 24,
-                fit: BoxFit.cover,
+              const SizedBox(height: 16),
+              PixelButton(
+                text: 'Benchmark',
+                icon: Image.asset(
+                  'assets/images/Menu/Buttons/Settings.png',
+                  height: 24,
+                  width: 24,
+                  fit: BoxFit.cover,
+                ),
+                onPressed: () => _enableBenchmark(context),
               ),
-              onPressed: () => _enableBenchmark(context),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

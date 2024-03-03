@@ -41,6 +41,7 @@ class GameOverScreen extends StatelessWidget {
             isPlayerDead
                 ? const Text(
                     'Game over',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'PixelifySans',
                       fontSize: 64,
@@ -49,6 +50,7 @@ class GameOverScreen extends StatelessWidget {
                   )
                 : const Text(
                     'Congratulations!',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'PixelifySans',
                       fontSize: 64,
@@ -59,6 +61,7 @@ class GameOverScreen extends StatelessWidget {
             isPlayerDead
                 ? const Text(
                     'You have lost all your hearts.',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'PixelifySans',
                       fontSize: 32,
@@ -67,6 +70,7 @@ class GameOverScreen extends StatelessWidget {
                     ),
                   )
                 : const Text(
+                    textAlign: TextAlign.center,
                     'You have completed the game.',
                     style: TextStyle(
                       fontFamily: 'PixelifySans',
@@ -80,6 +84,7 @@ class GameOverScreen extends StatelessWidget {
               builder: (context, state) {
                 return Text(
                   'Score: ${state.score}',
+                  textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontFamily: 'PixelifySans',
                     fontSize: 32,
