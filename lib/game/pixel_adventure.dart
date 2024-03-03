@@ -142,7 +142,7 @@ class PixelAdventure extends FlameGame
         height: 360,
       );
       cam.viewfinder.anchor = Anchor.topLeft;
-      addAll([cam, world]);
+      addAll([cam..priority = -1, world]);
       overlays.add('Score');
       overlays.add('Health');
     });
