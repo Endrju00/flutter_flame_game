@@ -7,7 +7,7 @@ import '../../../features/player/bloc/health/health_bloc.dart';
 import '../../../features/points/bloc/score/score_bloc.dart';
 import '../../../pixel_adventure.dart';
 import '../widgets/pixel_button.dart';
-import 'menu.dart';
+import 'interstitial_ad.dart';
 
 class GameOverScreen extends StatelessWidget {
   final PixelAdventure game;
@@ -25,7 +25,7 @@ class GameOverScreen extends StatelessWidget {
     sl<BenchmarkBloc>().add(DisableBenchmarkEvent());
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (context) => const Menu(),
+        builder: (context) => const InterstitialAd(),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class PixelButton extends StatelessWidget {
   final String text;
+  final double fontSize;
   final Function()? onPressed;
   final Widget? icon;
 
@@ -10,6 +11,7 @@ class PixelButton extends StatelessWidget {
     required this.text,
     this.icon,
     this.onPressed,
+    this.fontSize = 24,
   });
 
   @override
@@ -32,9 +34,9 @@ class PixelButton extends StatelessWidget {
               Text(
                 text,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'PixelifySans',
-                  fontSize: 24,
+                  fontSize: fontSize,
                   color: Colors.white,
                 ),
               ),

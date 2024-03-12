@@ -7,6 +7,10 @@ import '../../../features/benchmark/bloc/benchmark_bloc.dart';
 import '../widgets/pixel_button.dart';
 import 'game_play.dart';
 
+void lauchDeveloperSite() async {
+  if (!await launchUrl(Uri.parse('https://github.com/Endrju00'))) return;
+}
+
 class Menu extends StatelessWidget {
   const Menu({super.key});
 
@@ -21,10 +25,6 @@ class Menu extends StatelessWidget {
   void _enableBenchmark(BuildContext context) {
     sl<BenchmarkBloc>().add(EnableBenchmarkEvent());
     _navigateToGamePlay(context);
-  }
-
-  void _lauchDeveloperSite() async {
-    if (!await launchUrl(Uri.parse('https://github.com/Endrju00'))) return;
   }
 
   @override
@@ -69,7 +69,8 @@ class Menu extends StatelessWidget {
             ),
             const Spacer(),
             InkWell(
-              onTap: _lauchDeveloperSite,
+              onTap: lauchDeveloperSite,
+              borderRadius: BorderRadius.circular(8),
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: ConstrainedBox(
@@ -97,6 +98,7 @@ class Menu extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 4)
           ],
         ),
       ),
