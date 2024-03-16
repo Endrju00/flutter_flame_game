@@ -8,7 +8,7 @@ import '../widgets/pixel_button.dart';
 import 'game_play.dart';
 
 void lauchDeveloperSite() async {
-  if (!await launchUrl(Uri.parse('https://github.com/Endrju00'))) return;
+  if (!await launchUrl(Uri.parse('https://justdodo27.github.io/e-marketing/'))) return;
 }
 
 class Menu extends StatelessWidget {
