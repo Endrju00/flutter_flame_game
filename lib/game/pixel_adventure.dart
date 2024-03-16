@@ -130,6 +130,7 @@ class PixelAdventure extends FlameGame
   }
 
   void _loadLevel() {
+    overlays.add('Logo');
     Future.delayed(const Duration(seconds: 1), () {
       final world = Level(
         player: player,
@@ -142,6 +143,7 @@ class PixelAdventure extends FlameGame
         height: 360,
       );
       cam.viewfinder.anchor = Anchor.topLeft;
+      overlays.remove('Logo');
       addAll([cam..priority = -1, world]);
       overlays.add('Score');
       overlays.add('Health');

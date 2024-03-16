@@ -5,6 +5,7 @@ import '../../../pixel_adventure.dart';
 import '../overlays/health_overlay.dart';
 import '../overlays/score_overlay.dart';
 import 'game_over.dart';
+import 'logo_screen.dart';
 
 class GamePlay extends StatelessWidget {
   const GamePlay({super.key});
@@ -17,6 +18,7 @@ class GamePlay extends StatelessWidget {
         child: GameWidget(
           game: PixelAdventure(),
           overlayBuilderMap: {
+            'Logo': (context, game) => const LogoScreen(),
             'Score': (context, game) => const ScoreOverlay(),
             'Health': (context, game) => const HealthOverlay(),
             'Game over': (context, game) => GameOverScreen(
