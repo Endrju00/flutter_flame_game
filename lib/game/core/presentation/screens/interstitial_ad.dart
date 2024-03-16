@@ -37,6 +37,7 @@ class _InterstitialAdState extends State<InterstitialAd> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF211F30),
       body: PopScope(
         canPop: false,
         child: Stack(
@@ -79,9 +80,12 @@ class _InterstitialAdState extends State<InterstitialAd> {
             Positioned.fill(
               child: Align(
                 alignment: Alignment.center,
-                child: InkWell(
-                  onTap: lauchDeveloperSite,
-                  child: Image.asset('assets/interstitial_ad.png'),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: InkWell(
+                    onTap: lauchDeveloperSite,
+                    child: Image.asset('assets/interstitial_ad.png'),
+                  ),
                 ),
               ),
             ),
