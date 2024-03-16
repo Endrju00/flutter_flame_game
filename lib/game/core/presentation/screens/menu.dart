@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../injection_container.dart';
 import '../../../features/benchmark/bloc/benchmark_bloc.dart';
+import '../widgets/logo.dart';
 import '../widgets/pixel_button.dart';
 import 'game_play.dart';
 
@@ -36,13 +36,19 @@ class Menu extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
-            const Text(
-              'Pixel Adventure',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'PixelifySans',
-                fontSize: 64,
-                color: Colors.white,
+            const Hero(
+              tag: 'logo',
+              child: Material(
+                type: MaterialType.transparency,
+                child: Text(
+                  'Pixel Adventure',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'PixelifySans',
+                    fontSize: 64,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 32),
@@ -75,25 +81,9 @@ class Menu extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 320),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Game made by',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'PixelifySans',
-                          fontSize: 16,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      SvgPicture.asset(
-                        'assets/logo-white.svg',
-                        height: 32,
-                        fit: BoxFit.cover,
-                      ),
-                    ],
+                  child: const Hero(
+                    tag: 'label',
+                    child: Logo(),
                   ),
                 ),
               ),
