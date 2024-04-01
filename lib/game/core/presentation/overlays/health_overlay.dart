@@ -24,7 +24,7 @@ class HealthOverlay extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: max(0, state.hearts),
               itemBuilder: (context, index) {
-                return Image.asset('assets/images/Menu/heart-logo.png');
+                return Image.asset('assets/images/Menu/heart.png');
               },
             ),
           );

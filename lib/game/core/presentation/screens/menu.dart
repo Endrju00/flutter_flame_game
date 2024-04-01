@@ -7,12 +7,12 @@ import '../widgets/logo.dart';
 import '../widgets/pixel_button.dart';
 import 'game_play.dart';
 
-void lauchDeveloperSite() async {
-  if (!await launchUrl(Uri.parse('https://justdodo27.github.io/e-marketing/'))) return;
-}
-
 class Menu extends StatelessWidget {
   const Menu({super.key});
+
+  void _launchDeveloperSite() async {
+    if (!await launchUrl(Uri.parse('https://github.com/Endrju00'))) return;
+  }
 
   void _navigateToGamePlay(BuildContext context) {
     Navigator.of(context).pushReplacement(
@@ -64,7 +64,7 @@ class Menu extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             PixelButton(
-              text: 'Benchmark',
+              text: 'Demo',
               icon: Image.asset(
                 'assets/images/Menu/Buttons/Settings.png',
                 height: 24,
@@ -75,7 +75,7 @@ class Menu extends StatelessWidget {
             ),
             const Spacer(),
             InkWell(
-              onTap: lauchDeveloperSite,
+              onTap: _launchDeveloperSite,
               borderRadius: BorderRadius.circular(8),
               child: Padding(
                 padding: const EdgeInsets.all(16),
