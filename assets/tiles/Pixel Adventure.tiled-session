@@ -3,43 +3,64 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Benchmark-02.tmx",
+    "activeFile": "Benchmark-04.tmx",
     "expandedProjectPaths": [
         "."
     ],
     "fileStates": {
         "Benchmark-01.tmx": {
             "expandedObjectLayers": [
-                2,
-                3
+                3,
+                2
             ],
             "scale": 2.3275,
-            "selectedLayer": 1,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 320.30075187969925,
-                "y": 184.10311493018258
+                "x": 319.65628356605805,
+                "y": 256.2835660580021
             }
         },
         "Benchmark-02.tmx": {
             "expandedObjectLayers": [
-                3
+                3,
+                2
             ],
             "scale": 2.3275,
-            "selectedLayer": 1,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 319.8711063372717,
+                "x": 318.796992481203,
                 "y": 183.67346938775512
             }
         },
         "Benchmark-03.tmx": {
             "expandedObjectLayers": [
+                3,
                 2
             ],
             "scale": 2.3275,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 317.937701396348,
+                "y": 183.67346938775512
+            }
+        },
+        "Benchmark-04.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 2.2978125,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 320.30075187969925,
-                "y": 184.10311493018258
+                "x": 352.0739834081327,
+                "y": 184.3057255541956
+            }
+        },
+        "Benchmark-05.tmx": {
+            "scale": 2.2978125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 318.5638514891881,
+                "y": 183.87052903576773
             }
         },
         "Level-01.tmx": {
@@ -50,20 +71,20 @@
             "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 274.75,
-                "y": 98.25
+                "x": 319.25,
+                "y": 231.25
             }
         },
         "Level-02.tmx": {
             "expandedObjectLayers": [
-                2,
-                3
+                3,
+                2
             ],
             "scale": 2,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 259.75,
-                "y": 152.25
+                "x": 319.75,
+                "y": 183.75
             }
         },
         "Level-03 — kopia.tmx": {
@@ -76,38 +97,38 @@
         },
         "Level-03.tmx": {
             "expandedObjectLayers": [
-                2,
-                3
+                3,
+                2
             ],
             "scale": 2.4403125,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 319.0165194006915,
-                "y": 183.37815341272886
+                "x": 319.8360865667819,
+                "y": 183.7879369957741
             }
         },
         "Level-04.tmx": {
             "expandedObjectLayers": [
-                4,
-                3
+                3,
+                4
             ],
             "scale": 2.4403125,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 319.0165194006915,
-                "y": 183.37815341272886
+                "x": 319.8360865667819,
+                "y": 183.7879369957741
             }
         },
         "Level-05.tmx": {
             "expandedObjectLayers": [
-                4,
-                3
+                3,
+                4
             ],
             "scale": 2.4403125,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 317.7871686515559,
-                "y": 252.63157894736838
+                "x": 319.8360865667819,
+                "y": 183.7879369957741
             }
         },
         "Pixel Adventure.tsx": {
@@ -122,30 +143,26 @@
     "map.tileWidth": 16,
     "map.width": 40,
     "openFiles": [
-        "Pixel Adventure.tsx",
-        "Level-01.tmx",
-        "Level-02.tmx",
-        "Level-03.tmx",
-        "Level-04.tmx",
         "Benchmark-01.tmx",
-        "Level-05.tmx",
         "Benchmark-02.tmx",
-        "Level-03 — kopia.tmx",
-        "Benchmark-03.tmx"
+        "Benchmark-03.tmx",
+        "Benchmark-04.tmx"
     ],
     "project": "Pixel Adventure.tiled-project",
     "property.type": "bool",
     "recentFiles": [
-        "Pixel Adventure.tsx",
-        "Level-01.tmx",
-        "Level-02.tmx",
-        "Level-03.tmx",
-        "Level-04.tmx",
         "Benchmark-01.tmx",
-        "Level-05.tmx",
+        "Benchmark-02.tmx",
         "Benchmark-03.tmx",
-        "Level-03 — kopia.tmx",
-        "Benchmark-02.tmx"
+        "Benchmark-04.tmx",
+        "Benchmark-05.tmx",
+        "Level-01.tmx",
+        "Level-04.tmx",
+        "Level-03.tmx",
+        "Level-02.tmx",
+        "Pixel Adventure.tsx",
+        "Level-05.tmx",
+        "Level-03 — kopia.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

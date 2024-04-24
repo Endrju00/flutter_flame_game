@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="244">
+ <tileset firstgid="1" source="Pixel Adventure.tsx"/>
+ <layer id="1" name="Background" width="40" height="23">
+  <properties>
+   <property name="BackgroundColor" value="Green"/>
+  </properties>
+  <data encoding="csv">
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,
+24,24,24,92,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,93,24,24,24,
+24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,189,190,190,190,190,191,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,189,190,190,190,190,190,190,191,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,189,190,190,190,190,190,190,190,190,191,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,189,190,190,190,190,190,190,190,190,190,190,191,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,24,
+24,24,24,113,7,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,9,111,24,24,24,
+24,24,24,114,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,115,24,24,24,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24
+</data>
+ </layer>
+ <objectgroup id="2" name="Spawnpoints">
+  <object id="1" name="Player" type="Player" x="128" y="64" width="32" height="32"/>
+  <object id="15" type="Checkpoint" x="512" y="224" width="64" height="64"/>
+  <object id="139" name="Chicken" type="Chicken" x="64" y="64" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="7"/>
+   </properties>
+  </object>
+  <object id="140" name="Chicken" type="Chicken" x="64" y="112" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="27"/>
+   </properties>
+  </object>
+  <object id="141" name="Chicken" type="Chicken" x="64" y="160" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="17"/>
+   </properties>
+  </object>
+  <object id="142" name="Chicken" type="Chicken" x="64" y="208" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="19"/>
+   </properties>
+  </object>
+  <object id="143" name="Chicken" type="Chicken" x="64" y="256" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="27"/>
+   </properties>
+  </object>
+  <object id="144" name="Chicken" type="Chicken" x="160" y="112" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="27"/>
+   </properties>
+  </object>
+  <object id="161" name="Chicken" type="Chicken" x="96" y="112" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="27"/>
+   </properties>
+  </object>
+  <object id="162" name="Chicken" type="Chicken" x="96" y="160" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="15"/>
+   </properties>
+  </object>
+  <object id="163" name="Chicken" type="Chicken" x="128" y="160" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="13"/>
+   </properties>
+  </object>
+  <object id="164" name="Chicken" type="Chicken" x="96" y="208" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="17"/>
+   </properties>
+  </object>
+  <object id="165" name="Chicken" type="Chicken" x="128" y="208" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="15"/>
+   </properties>
+  </object>
+  <object id="167" name="Chicken" type="Chicken" x="96" y="256" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="27"/>
+   </properties>
+  </object>
+  <object id="168" name="Chicken" type="Chicken" x="128" y="256" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="27"/>
+   </properties>
+  </object>
+  <object id="169" name="Chicken" type="Chicken" x="160" y="256" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="27"/>
+   </properties>
+  </object>
+  <object id="170" name="Chicken" type="Chicken" x="192" y="256" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="27"/>
+   </properties>
+  </object>
+  <object id="171" name="Chicken" type="Chicken" x="224" y="256" width="32" height="32">
+   <properties>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="27"/>
+   </properties>
+  </object>
+  <object id="175" type="Saw" x="288" y="96" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="176" type="Saw" x="320" y="96" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="177" type="Saw" x="288" y="128" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="178" type="Saw" x="320" y="128" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="179" name="Bananas" type="Fruit" x="352" y="256" width="32" height="32"/>
+  <object id="180" name="Melon" type="Fruit" x="384" y="256" width="32" height="32"/>
+  <object id="181" name="Cherries" type="Fruit" x="416" y="256" width="32" height="32"/>
+  <object id="182" name="Orange" type="Fruit" x="448" y="256" width="32" height="32"/>
+  <object id="183" name="Bananas" type="Fruit" x="448" y="64" width="32" height="32"/>
+  <object id="184" name="Melon" type="Fruit" x="480" y="64" width="32" height="32"/>
+  <object id="185" name="Cherries" type="Fruit" x="512" y="64" width="32" height="32"/>
+  <object id="186" name="Orange" type="Fruit" x="544" y="64" width="32" height="32"/>
+  <object id="187" name="Bananas" type="Fruit" x="448" y="96" width="32" height="32"/>
+  <object id="188" name="Melon" type="Fruit" x="480" y="96" width="32" height="32"/>
+  <object id="189" name="Cherries" type="Fruit" x="512" y="96" width="32" height="32"/>
+  <object id="190" name="Orange" type="Fruit" x="544" y="96" width="32" height="32"/>
+  <object id="191" name="Bananas" type="Fruit" x="448" y="128" width="32" height="32"/>
+  <object id="192" name="Melon" type="Fruit" x="480" y="128" width="32" height="32"/>
+  <object id="193" name="Cherries" type="Fruit" x="512" y="128" width="32" height="32"/>
+  <object id="194" name="Orange" type="Fruit" x="544" y="128" width="32" height="32"/>
+  <object id="199" name="Bananas" type="Fruit" x="448" y="160" width="32" height="32"/>
+  <object id="200" name="Melon" type="Fruit" x="480" y="160" width="32" height="32"/>
+  <object id="201" name="Cherries" type="Fruit" x="512" y="160" width="32" height="32"/>
+  <object id="202" name="Orange" type="Fruit" x="544" y="160" width="32" height="32"/>
+  <object id="204" name="Melon" type="Fruit" x="480" y="192" width="32" height="32"/>
+  <object id="205" name="Cherries" type="Fruit" x="512" y="192" width="32" height="32"/>
+  <object id="206" name="Orange" type="Fruit" x="544" y="192" width="32" height="32"/>
+  <object id="207" type="Saw" x="352" y="96" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="208" type="Saw" x="384" y="96" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="209" type="Saw" x="352" y="128" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="210" type="Saw" x="384" y="128" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="211" type="Saw" x="288" y="192" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offsetNeg" type="float" value="0"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="212" type="Saw" x="320" y="192" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offsetNeg" type="float" value="0"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="213" type="Saw" x="352" y="192" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offsetNeg" type="float" value="0"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="214" type="Saw" x="384" y="192" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offsetNeg" type="float" value="0"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="215" type="Saw" x="288" y="224" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offsetNeg" type="float" value="0"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="216" type="Saw" x="320" y="224" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offsetNeg" type="float" value="0"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="217" type="Saw" x="352" y="224" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offsetNeg" type="float" value="0"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="218" type="Saw" x="384" y="224" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offsetNeg" type="float" value="0"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="219" type="Saw" x="416" y="192" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offsetNeg" type="float" value="0"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="220" type="Saw" x="416" y="224" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offsetNeg" type="float" value="0"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="221" type="Saw" x="416" y="96" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="222" type="Saw" x="416" y="128" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offsetNeg" type="float" value="1"/>
+    <property name="offsetPos" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="223" name="Bananas" type="Fruit" x="160" y="64" width="32" height="32"/>
+  <object id="224" name="Melon" type="Fruit" x="192" y="64" width="32" height="32"/>
+  <object id="225" name="Cherries" type="Fruit" x="224" y="64" width="32" height="32"/>
+  <object id="226" name="Orange" type="Fruit" x="256" y="64" width="32" height="32"/>
+  <object id="227" name="Melon" type="Fruit" x="192" y="96" width="32" height="32"/>
+  <object id="228" name="Cherries" type="Fruit" x="224" y="96" width="32" height="32"/>
+  <object id="229" name="Orange" type="Fruit" x="256" y="96" width="32" height="32"/>
+  <object id="230" name="Melon" type="Fruit" x="192" y="128" width="32" height="32"/>
+  <object id="231" name="Cherries" type="Fruit" x="224" y="128" width="32" height="32"/>
+  <object id="232" name="Orange" type="Fruit" x="256" y="128" width="32" height="32"/>
+  <object id="233" name="Melon" type="Fruit" x="192" y="160" width="32" height="32"/>
+  <object id="234" name="Cherries" type="Fruit" x="224" y="160" width="32" height="32"/>
+  <object id="235" name="Orange" type="Fruit" x="256" y="160" width="32" height="32"/>
+  <object id="236" name="Cherries" type="Fruit" x="224" y="192" width="32" height="32"/>
+  <object id="237" name="Orange" type="Fruit" x="256" y="192" width="32" height="32"/>
+  <object id="240" name="Cherries" type="Fruit" x="288" y="256" width="32" height="32"/>
+  <object id="241" name="Orange" type="Fruit" x="320" y="256" width="32" height="32"/>
+  <object id="242" name="Bananas" type="Fruit" x="480" y="256" width="32" height="32"/>
+  <object id="243" name="Bananas" type="Fruit" x="256" y="256" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="3" name="Collisions">
+  <object id="4" x="48" y="48" width="16" height="272"/>
+  <object id="6" x="64" y="48" width="512" height="16"/>
+  <object id="7" x="64" y="304" width="512" height="16"/>
+  <object id="8" x="576" y="48" width="16" height="272"/>
+  <object id="17" x="64" y="288" width="512" height="16"/>
+  <object id="149" x="144" y="304" width="96"/>
+  <object id="150" x="64" y="288" width="512" height="16"/>
+  <object id="151" x="128" y="96" width="32" height="16"/>
+  <object id="152" x="160" y="144" width="32" height="16"/>
+  <object id="153" x="192" y="192" width="32" height="16"/>
+  <object id="154" x="224" y="240" width="32" height="16"/>
+  <object id="155" x="64" y="240" width="128" height="16"/>
+  <object id="156" x="64" y="192" width="96" height="16"/>
+  <object id="157" x="64" y="144" width="64" height="16"/>
+  <object id="158" x="64" y="96" width="32" height="16"/>
+ </objectgroup>
+</map>

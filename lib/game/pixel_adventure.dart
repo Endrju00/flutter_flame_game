@@ -35,12 +35,15 @@ class PixelAdventure extends FlameGame
     'Level-03',
     'Level-04',
     'Level-05',
+    'Level-06',
+    'Level-07',
   ];
 
   final List<String> _benchmarkLevels = [
     'Benchmark-01',
     'Benchmark-02',
     'Benchmark-03',
+    'Benchmark-04',
   ];
 
   int currentLevel = 0;
